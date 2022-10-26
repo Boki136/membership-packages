@@ -1,0 +1,609 @@
+.hide_el {
+    display: none;
+}
+
+.sr-only {
+    display: none;
+}
+
+.text-brown {
+    color: #461e0d !important;
+}
+
+.diamond-background {
+    background-image: url('./media/diamond-background.svg');
+}
+
+.text-grey {
+    color: #77838f !important;
+}
+
+.mobile__only {
+    display: none !important;
+}
+
+.brown-hover:hover {
+    color: #461e0d;
+}
+
+.red-hover:hover {
+    color: #ed1c24 !important;
+}
+
+.change__button {
+    border: none;
+    outline: none;
+    background: none;
+    color: #ed1c24;
+    transition: .2s ease-in-out;
+}
+
+.change__button:focus {
+    border: none;
+    outline: none;
+}
+
+.promo-btn {
+    background-color: transparent !important;
+    color: #461e0d;
+    border: 0.0625rem solid #e7eaf3 !important;
+}
+
+.promo-btn:hover {
+    color: #461e0d !important;
+}
+
+.background-img--wrapper {
+    background-image: url('./media/background-hero-img-desktop.jpg');
+    background-repeat: no-repeat;
+}
+
+.header-section.no-background__modifier {
+    background-color: transparent;
+    color: #fff;
+}
+
+.header-section.no-background__modifier .nav-link {
+    color: #fff;
+}
+
+.booking-details__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    position: relative;
+    top: -70px;
+}
+
+.stylist__image {
+    position: relative;
+}
+
+.stylist__image i:nth-child(4) {
+    color: #dfdfdf;
+    position: relative;
+    bottom: 6px;
+    padding-left: 2px;
+}
+
+.tooltiptext {
+    font-family: "proxima-nova", arial, sans-serif !important;
+}
+
+.tooltip__wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip__wrapper .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #461e0d;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    font-size: .9em;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+}
+
+.book__later.desktop__only {
+    position: absolute;
+    bottom: -75px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.tooltip__wrapper:hover .tooltiptext,
+.tooltip__wrapper:active .tooltiptext {
+    visibility: visible;
+}
+
+.appointment-details-service__single {
+    position: relative;
+}
+
+.service-name__wrapper img {
+    width: 30px;
+    height: 28px;
+    padding-left: 8px;
+}
+
+.extra-services__wrapper {
+    cursor: pointer;
+}
+
+.extra-services__wrapper .appointment-details-service__single {
+    display: none;
+}
+
+.extra-services__wrapper p .fa-chevron-down {
+    font-size: .9em;
+    padding-left: 2px;
+}
+
+.appointment-details__wrapper {
+    width: 65%;
+    align-self: flex-start;
+}
+
+.service-summary__wrapper {
+    width: 32%;
+}
+
+.appointment-details__service .d-flex {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appoinment-details__time .d-flex {
+    justify-content: space-between;
+}
+
+.appoinment-details__time input {
+    flex-direction: row;
+    height: 57px;
+    padding: 0 12px;
+}
+
+.appoinment-details__time .date-selector,
+.appoinment-details__time .time-selector {
+    width: 48%;
+}
+
+.date-selector input,
+.time-selector input {
+    background: transparent;
+    color: #461e0d;
+}
+
+.date-selector input::-webkit-calendar-picker-indicator,
+.time-selector input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 2px;
+    color: #fff;
+    background-color: transparent;
+    visibility: hidden;
+}
+
+.date-selector input::after {
+    content: "\f073";
+    font-family: "Font Awesome 5 Free";
+    background: transparent;
+    color: #ed1c24;
+    font-weight: 900;
+}
+
+.time-selector input::after {
+    content: "\f017";
+    font-family: "Font Awesome 5 Free";
+    background: transparent;
+    color: #ed1c24;
+    font-weight: 900;
+}
+
+.promo-code__title {
+    width: 100%;
+}
+
+.promo__expand {
+    overflow: visible !important;
+}
+
+.search-bar__content {
+    width: 60%;
+}
+
+.search-location__input {
+    height: 43px;
+    width: 100%;
+    padding: 0 20px 0 60px;
+    background: url('./media/search--icon.svg')no-repeat left 23px center;
+    font-size: 14px;
+    background-size: 25px 25px;
+}
+
+.search-location__input::placeholder {
+    color: rgba(119, 131, 143, .6);
+}
+
+.content__divider {
+    height: 18px;
+    width: 1px;
+    background-color: #d9d9d9;
+}
+
+
+/***** Modals **/
+
+.modal__wrapper {
+    position: fixed;
+    overflow: scroll;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 1);
+    z-index: 9999;
+    background-image: url('./media/diamond-background.svg');
+    background-position: center top;
+    background-repeat: repeat;
+    background-size: 450px;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal__wrapper .container {
+    position: relative;
+}
+
+.close__modal {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    z-index: 999;
+    font-size: 20px;
+    color: #ed1c24;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.progress-bar {
+    height: 2px;
+    width: 100%;
+    background: rgba(103, 119, 136, .5);
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.progress-bar_fill {
+    background-color: red;
+    position: absolute;
+    height: 4px;
+    width: 40%;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2em;
+}
+
+.active__step p {
+    color: #ed1c24;
+    font-weight: 700;
+}
+
+.progress__img {
+    position: absolute;
+    top: 47px;
+    width: 55px;
+    height: 55px;
+}
+
+.first-step .progress__img {
+    left: 40%;
+}
+
+.change__location .first-step .progress__img {
+    left: 25%;
+}
+
+.second-step .progress__img {
+    left: 72%;
+}
+
+.third-step .progress__img {
+    left: 92%;
+}
+
+.selected-stylist__name {
+    padding-left: 25px;
+    font-weight: 300;
+}
+
+.completed__step p,
+.completed__step small {
+    opacity: .6;
+}
+
+.completed__step p::after {
+    content: "\f058";
+    font-weight: 900;
+    font-family: "FontAwesome";
+    padding-left: 8px;
+}
+
+.progress-bar__mobile {
+    padding: 50px 0 !important;
+}
+
+.progress-bar__mobile .first-step .progress__img {
+    left: 36%;
+}
+
+.search-location__wrapper {
+    align-items: flex-start;
+}
+
+.progress-bar__mobile .progress__img {
+    top: 82px;
+    width: 40px;
+}
+
+.progress-bar__mobile .third-step .progress__img {
+    left: 82%;
+}
+
+.locations__results {
+    text-align: left;
+}
+
+.location-city__name,
+.location-shop__name {
+    font-size: 1em;
+}
+
+.locations-city__listing {
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.locations-city__listing:hover {
+    background-color: #fafafa;
+}
+
+
+/***** Media **/
+
+@media only screen and (min-width: 1920px) {
+    .background-img--wrapper {
+        background-size: 100%;
+    }
+}
+
+@media only screen and (min-width: 991px) and (max-width: 1480px) {
+    .hero-text__wrapper {
+        padding: 5rem 0 5.5rem 0 !important;
+    }
+    .progress-bar__content {
+        padding-top: 3.5rem !important;
+    }
+    .progress__img {
+        top: 72px;
+    }
+    .modal__wrapper .main__content {
+        margin-top: 20px !important;
+        padding: 4.5rem 0 !important;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .desktop__only {
+        display: none !important;
+    }
+    .mobile__only {
+        display: block !important;
+    }
+    .background-img--wrapper {
+        background: none;
+    }
+    .hero-text__wrapper {
+        padding: 30px 0 !important;
+    }
+    .hero-text__wrapper h1 {
+        color: #461e0d !important;
+        font-size: 1.3em;
+        margin-bottom: 15px !important;
+    }
+    .service-summary__wrapper h2 {
+        display: none;
+    }
+    .service-summary__wrapper .border-bottom {
+        display: none;
+    }
+    .hero-text__wrapper p {
+        color: transparent !important;
+        font-size: 0;
+        padding-bottom: 15px !important;
+    }
+    .hero-text__wrapper p::after {
+        content: 'Review & confirm your appointment below';
+        font-size: 14px;
+        color: #77838f;
+    }
+    .booking-details__wrapper {
+        flex-wrap: wrap;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .18);
+        border-radius: .75rem;
+        background-color: #fff;
+        padding: 2.25rem 2rem;
+        top: -40px;
+    }
+    .appointment-details__wrapper,
+    .service-summary__wrapper {
+        width: 100%;
+    }
+    .service-summary__wrapper .card,
+    .appointment-details__wrapper {
+        box-shadow: none;
+        padding: 0 !important;
+        margin: 0;
+        background: none;
+    }
+    .service-summary__wrapper .media {
+        display: none;
+    }
+    .service-summary__wrapper .pb-4 {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .service-summary__wrapper .form-group {
+        border-radius: 10px;
+    }
+    .appointment-details__stylist h3 {
+        color: #fff;
+        font-size: 0px;
+        position: absolute;
+        top: -50px;
+        right: 0;
+        left: 0;
+        text-align: center;
+        border-bottom: none !important;
+    }
+    #shopCartAccordion {
+        border-bottom: 0.0625rem solid #e7eaf3;
+        padding-bottom: 15px !important;
+        border-radius: 0;
+        cursor: pointer;
+    }
+    #shopCartAccordion .card {
+        border: 1px solid #e7eaea;
+        border-radius: 10px;
+    }
+    .navbar-brand img {
+        display: none;
+    }
+    .navbar-brand {
+        background: url("./media/mobile_logo.svg");
+        width: 112px;
+        height: 28px;
+    }
+    #booking-form>div {
+        padding: 0 !important;
+    }
+    .booking-details__wrapper .mb-4 {
+        margin-bottom: 15px !important;
+        padding-bottom: 5px !important;
+    }
+    .appoinment-details__time input {
+        height: 39px;
+    }
+    .tooltip__wrapper .tooltiptext {
+        left: -90px;
+        bottom: -90px;
+    }
+    .need-help__content {
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        right: 0;
+    }
+    .appoinment-details__time .d-flex {
+        flex-direction: row;
+        align-items: center;
+        border: .0625rem solid rgba(231, 234, 243, .7);
+        justify-content: space-around;
+        padding: 5px 8px;
+    }
+    .appoinment-details__time .d-flex input {
+        border: none;
+        flex-direction: row-reverse;
+        height: 40px;
+    }
+    .date-selector input::after,
+    .time-selector input::after {
+        padding-right: 7px;
+    }
+    /* modals */
+    .progress-steps {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .search-bar__content {
+        width: 100%;
+    }
+    .search-location__wrapper {
+        flex-wrap: wrap;
+    }
+    .search-location__wrapper input {
+        width: 100%;
+    }
+    .search-location__wrapper button {
+        padding: 0 !important;
+        margin-left: 0 !important;
+        margin-top: 18px;
+    }
+    .appoinment-details__time p {
+        font-size: .9em;
+    }
+    .booking-details__wrapper {
+        padding: 1.3rem;
+    }
+    .hero-text__content {
+        margin-bottom: 25px !important;
+    }
+    .close__modal {
+        right: 25px;
+    }
+    .modal__wrapper .main__content {
+        padding: 2.5rem 0 !important;
+    }
+}
+
+@media only screen and (max-width: 490px) {
+    .stylist-name,
+    .appointment-details__location,
+    .appointment-details__service,
+    .appoinment-details__time,
+    .promo-code__wrapper a {
+        font-size: 14px;
+    }
+    .change-stylist__button,
+    .change-location__button {
+        font-size: 0 !important;
+    }
+    .change-stylist__button::after {
+        content: ' (edit)';
+        font-size: 14px;
+    }
+    .change-location__button::after {
+        content: ' (edit)';
+        font-size: 14px !important;
+    }
+    .appointment-details-service__single .change__button {
+        position: absolute;
+        right: 0;
+        bottom: 8px;
+        padding: 0;
+    }
+    .book__later.mobile__only {
+        line-height: 15px;
+    }
+    .book__later.mobile__only a {
+        font-size: .85em;
+        line-height: 15px;
+    }
+    .appoinment-details__time .d-flex {
+        padding: 5px 2px;
+    }
+    .appoinment-details__time input {
+        padding: 0 5px;
+    }
+}

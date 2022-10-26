@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="booking-and-account-custom-css.css">
+    <link rel="stylesheet" href="booking-and-account-theme.min.css">
+    <link rel="stylesheet" href="font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="membership-styles.css">
+    <!--<link rel="stylesheet" href="front-end-theme.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="/static/ss-assets/front/ss-design/assets/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/static/front-assets/vendor/fontawesome-lfg/css/all.min.css"> -->
+    <script src="https://kit.fontawesome.com/88ddfd17d7.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+        .tk-proxima-nova {
+            font-family: "proxima-nova", sans-serif;
+        }
+    </style>
+
+    <style type="text/css">
+        @font-face {
+            font-family: proxima-nova;
+            src: url(https://use.typekit.net/af/925423/00000000000000003b9b038f/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff2"), url(https://use.typekit.net/af/925423/00000000000000003b9b038f/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff"), url(https://use.typekit.net/af/925423/00000000000000003b9b038f/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("opentype");
+            font-weight: 700;
+            font-style: normal;
+            font-stretch: normal;
+            font-display: auto;
+        }
+        
+        @font-face {
+            font-family: proxima-nova;
+            src: url(https://use.typekit.net/af/cd78b3/00000000000000003b9b038e/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff2"), url(https://use.typekit.net/af/cd78b3/00000000000000003b9b038e/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff"), url(https://use.typekit.net/af/cd78b3/00000000000000003b9b038e/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("opentype");
+            font-weight: 700;
+            font-style: italic;
+            font-stretch: normal;
+            font-display: auto;
+        }
+        
+        @font-face {
+            font-family: proxima-nova;
+            src: url(https://use.typekit.net/af/219c30/00000000000000003b9b0389/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"), url(https://use.typekit.net/af/219c30/00000000000000003b9b0389/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"), url(https://use.typekit.net/af/219c30/00000000000000003b9b0389/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+            font-weight: 400;
+            font-style: normal;
+            font-stretch: normal;
+            font-display: auto;
+        }
+        
+        @font-face {
+            font-family: proxima-nova;
+            src: url(https://use.typekit.net/af/0de7d4/00000000000000003b9b0388/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff2"), url(https://use.typekit.net/af/0de7d4/00000000000000003b9b0388/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff"), url(https://use.typekit.net/af/0de7d4/00000000000000003b9b0388/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("opentype");
+            font-weight: 400;
+            font-style: italic;
+            font-stretch: normal;
+            font-display: auto;
+        }
+        
+        @font-face {
+            font-family: proxima-nova;
+            src: url(https://use.typekit.net/af/ed2fe5/00000000000000003b9b0387/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("woff2"), url(https://use.typekit.net/af/ed2fe5/00000000000000003b9b0387/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("woff"), url(https://use.typekit.net/af/ed2fe5/00000000000000003b9b0387/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("opentype");
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            font-display: auto;
+        }
+    </style>
+    <style type="text/css">
+        @font-face {
+            font-family: tk-proxima-nova-n7;
+            src: url(https://use.typekit.net/af/925423/00000000000000003b9b038f/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff2"), url(https://use.typekit.net/af/925423/00000000000000003b9b038f/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff"), url(https://use.typekit.net/af/925423/00000000000000003b9b038f/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("opentype");
+            font-weight: 700;
+            font-style: normal;
+            font-stretch: normal;
+            font-display: auto;
+        }
+        
+        @font-face {
+            font-family: tk-proxima-nova-i7;
+            src: url(https://use.typekit.net/af/cd78b3/00000000000000003b9b038e/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff2"), url(https://use.typekit.net/af/cd78b3/00000000000000003b9b038e/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff"), url(https://use.typekit.net/af/cd78b3/00000000000000003b9b038e/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("opentype");
+            font-weight: 700;
+            font-style: italic;
+            font-stretch: normal;
+            font-display: auto;
+        }
+        
+        @font-face {
+            font-family: tk-proxima-nova-n4;
+            src: url(https://use.typekit.net/af/219c30/00000000000000003b9b0389/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"), url(https://use.typekit.net/af/219c30/00000000000000003b9b0389/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"), url(https://use.typekit.net/af/219c30/00000000000000003b9b0389/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+            font-weight: 400;
+            font-style: normal;
+            font-stretch: normal;
+            font-display: auto;
+        }
+        
+        @font-face {
+            font-family: tk-proxima-nova-i4;
+            src: url(https://use.typekit.net/af/0de7d4/00000000000000003b9b0388/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff2"), url(https://use.typekit.net/af/0de7d4/00000000000000003b9b0388/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff"), url(https://use.typekit.net/af/0de7d4/00000000000000003b9b0388/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("opentype");
+            font-weight: 400;
+            font-style: italic;
+            font-stretch: normal;
+            font-display: auto;
+        }
+        
+        @font-face {
+            font-family: tk-proxima-nova-n3;
+            src: url(https://use.typekit.net/af/ed2fe5/00000000000000003b9b0387/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("woff2"), url(https://use.typekit.net/af/ed2fe5/00000000000000003b9b0387/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("woff"), url(https://use.typekit.net/af/ed2fe5/00000000000000003b9b0387/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("opentype");
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            font-display: auto;
+        }
+    </style>
+</head>
+
+<body class="diamond-background">
+    <!--Membership packages-->
+    <section class="membership-section__wrapper container text-center space-2 space-top-2">
+        <div class="space-bottom-1">
+            <h2 class="display-5 font-weight-bold uppercase mb-sm-4 fadeInUp u-in-viewport">
+                MEMBERSHIP PRICING</h2>
+            <p class="pb-3 mb-3 lead">S&S memberships let you design your perfect service package in two easy steps. First, choose how often you want to come in. Second, choose your favorite hair service. And from there, enjoy all of the savings and perks that come with being
+                a member!
+            </p>
+            <p class="lead"><i>*85% of the time, S&S members choose the annual plan every time.</i></p>
+
+        </div>
+        <!--Location-->
+        <div class="text-center">
+            <div class="text-center mb-2">
+                <span class="u-divider u-divider--text">Membership Pricing For:</span>
+            </div>
+            <ul class="list-inline">
+                <li class="list-inline-item mr-0">
+                    <div class="d-flex align-items-center">
+                        <span class="fas fa-map-marker-alt text-secondary mr-2 map-marker modal-size map-marker-custom"></span>
+                        <a href="#bookingModal" data-modal-target="#bookingModal">
+                            <h5 class="d-sm-inline-block font-weight-bold">Overland Park, KS</h5>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="membership-type__switcher justify-content-center align-items-center  m0-auto">
+            <button class="monthly__option active mr-1">Monthly</button>
+            <div class="annual__option d-flex"> <button>Annual </button>
+                <p class="mb-0">Save 15%</p>
+            </div>
+
+
+        </div>
+        <!--Membership packages-->
+        <div class="membership-packages__wrapper pt-9">
+            <div class="continous__carousel">
+                <div class="membership-card sell-points" style="order:1">
+                    <svg width="322" height="590" viewBox="0 0 322 590" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M321.5 20V570C321.5 580.77 312.77 589.5 302 589.5H20C9.23045 589.5 0.5 580.77 0.5 570V20C0.5 9.23044 9.23045 0.5 20 0.5H72.3461C77.4425 0.5 82.3364 2.49521 85.98 6.0585L114.736 34.1797C116.698 36.0984 119.333 37.1728 122.077 37.1728H200.273C203.711 37.1728 206.932 35.4897 208.894 32.6671L225.443 8.86762C229.088 3.6256 235.068 0.5 241.453 0.5H302C312.77 0.5 321.5 9.23045 321.5 20Z" fill="white" stroke="#E7EAEA"/>
+                        </svg>
+                    <img class="accent__img top-left" src="./media/squiggle-icon.png" alt="decoration-icon">
+                    <h3 class="uppercase font-weight-bold">THE TEN YEAR</h3>
+                    <p class="lead membership-description">Full-service cuts to keep you looking your best.</p>
+                    <small>starting from</small>
+                    <p class="h3 membership__price uppercase font-weight-bold">$36.99</p>
+                    <hr>
+                    <img class="accent__img middle-left" src="./media/red-x-icon.svg" alt="decoration-icon">
+                    <ul class="text-left membership__benefits">
+                        <li>Full service haircut & style</li>
+                        <li>Cleansing shampoo & conditioning treatment
+                        </li>
+                        <li>Rejuvenating steamed towel treatment & back of neck razor</li>
+                    </ul>
+                    <button class="btn_membership button_outline m0-auto">GET STARTED</button>
+                </div>
+                <div class="membership-card sell-points popular" style="order:2">
+                    <svg width="322" height="590" viewBox="0 0 322 590" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M321.5 20V570C321.5 580.77 312.77 589.5 302 589.5H20C9.23045 589.5 0.5 580.77 0.5 570V20C0.5 9.23044 9.23045 0.5 20 0.5H72.3461C77.4425 0.5 82.3364 2.49521 85.98 6.0585L114.736 34.1797C116.698 36.0984 119.333 37.1728 122.077 37.1728H200.273C203.711 37.1728 206.932 35.4897 208.894 32.6671L225.443 8.86762C229.088 3.6256 235.068 0.5 241.453 0.5H302C312.77 0.5 321.5 9.23045 321.5 20Z" fill="#260E00" stroke="#E7EAEA"/>
+                        </svg>
+                    <p class="popular_memebrship">Popular</p>
+                    <img class="accent__img top-center" src="./media/squiggle-icon.png" alt="decoration-icon">
+                    <h3 class="uppercase font-weight-bold">THE FIFTEEN YEAR</h3>
+                    <p class="lead membership-description">Upgraded visits that leave you feeling refreshed.</p>
+                    <small>starting from</small>
+                    <p class="membership__price uppercase font-weight-bold">$36.99</p>
+                    <hr>
+                    <ul class="text-left membership__benefits">
+                        <li>Full service haircut & style</li>
+                        <li>Cleansing shampoo & conditioning treatment
+                        </li>
+                        <li>Rejuvenating steamed towel treatment & back of neck razor</li>
+                        <li>Shooting scalp massage & face refresher</li>
+
+                    </ul>
+                    <button class="btn_membership  button_filled m0-auto">GET STARTED</button>
+                </div>
+                <div class="membership-card sell-points" style="order:3">
+                    <svg width="322" height="590" viewBox="0 0 322 590" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M321.5 20V570C321.5 580.77 312.77 589.5 302 589.5H20C9.23045 589.5 0.5 580.77 0.5 570V20C0.5 9.23044 9.23045 0.5 20 0.5H72.3461C77.4425 0.5 82.3364 2.49521 85.98 6.0585L114.736 34.1797C116.698 36.0984 119.333 37.1728 122.077 37.1728H200.273C203.711 37.1728 206.932 35.4897 208.894 32.6671L225.443 8.86762C229.088 3.6256 235.068 0.5 241.453 0.5H302C312.77 0.5 321.5 9.23045 321.5 20Z" fill="white" stroke="#E7EAEA"/>
+                        </svg>
+                    <img class="accent__img top-left rotate-90" src="./media/squiggle-icon.png" alt="">
+                    <h3 class="uppercase font-weight-bold">THE TWENTY-FIVE YEAR</h3>
+                    <p class="lead membership-description">One helluva grooming experience.</p>
+                    <small>starting from</small>
+                    <p class="h3 membership__price uppercase font-weight-bold">$36.99</p>
+                    <hr>
+                    <ul class="text-left membership__benefits">
+                        <li>Full service haircut & style</li>
+                        <li>Cleansing shampoo & conditioning treatment
+                        </li>
+                        <li>Rejuvenating steamed towel treatment & back of neck razor</li>
+                        <li>Shooting scalp massage & face refresher</li>
+                        <li>Relaxing paraffin hand dip and neck, shoulder, and hand massage.</li>
+
+                    </ul>
+                    <button class="btn_membership button_outline m0-auto">GET STARTED</button>
+                </div>
+                <div class='membership-card__wrapper' style="order:4">
+                    <div class="membership-card mb-0">
+                        <svg width="322" height="289" viewBox="0 0 322 289" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M321.5 20V269C321.5 279.77 312.77 288.5 302 288.5H20C9.23045 288.5 0.5 279.77 0.5 269V20C0.5 9.23045 9.23045 0.5 20 0.5H72.5317C77.5204 0.5 82.3194 2.41198 85.9413 5.84256L116.264 34.5631C118.214 36.4103 120.798 37.4398 123.484 37.4398H201.367C204.75 37.4398 207.926 35.8095 209.898 33.0603L227.422 8.63338C231.085 3.52781 236.983 0.5 243.266 0.5H302C312.77 0.5 321.5 9.23045 321.5 20Z" fill="white" stroke="#E7EAEA"/>
+                        </svg>
+                        <img class="accent__img top-left-corner" src="./media/scissors-icon.svg" alt="">
+                        <h3 class="uppercase font-weight-bold">THE BUZZ CUT</h3>
+                        <p class="lead membership-description">A shorter option that never leaves you short of looking your best. </p>
+                        <small>starting from</small>
+                        <p class="h3 membership__price uppercase font-weight-bold">$24.99</p>
+                        <button class="btn_membership  button_outline m0-auto">GET STARTED</button>
+                    </div>
+                    <div class="membership-card mb-0">
+                        <svg width="322" height="289" viewBox="0 0 322 289" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M321.5 20V269C321.5 279.77 312.77 288.5 302 288.5H20C9.23045 288.5 0.5 279.77 0.5 269V20C0.5 9.23045 9.23045 0.5 20 0.5H72.5317C77.5204 0.5 82.3194 2.41198 85.9413 5.84256L116.264 34.5631C118.214 36.4103 120.798 37.4398 123.484 37.4398H201.367C204.75 37.4398 207.926 35.8095 209.898 33.0603L227.422 8.63338C231.085 3.52781 236.983 0.5 243.266 0.5H302C312.77 0.5 321.5 9.23045 321.5 20Z" fill="white" stroke="#E7EAEA"/>
+                        </svg>
+                        <img class="accent__img top-right" src="./media/squiggle-icon.png" alt="decoration-icon">
+                        <h3 class="uppercase font-weight-bold">THE JUNIOR CUT</h3>
+                        <p class="lead membership-description">A Ten Year cut for the next generation of gentlemen.</p>
+                        <small>starting from</small>
+                        <p class="h3 membership__price uppercase font-weight-bold">$34.99</p>
+                        <button class="btn_membership button_outline m0-auto">GET STARTED</button>
+                    </div>
+                </div>
+
+            </div>
+            <!--Navigation arrows-->
+            <div class="arrows-wrapper">
+                <i class="fas fa-arrow-circle-left left"></i>
+                <i class="fas fa-arrow-circle-right right"></i>
+            </div>
+        </div>
+
+    </section>
+
+    <!-------------Modals--------- >
+
+        <!- -Select frequency modal-->
+    <div class="modal__wrapper frequency-options__modal hide_el">
+        <div class="container">
+            <i class="fas fa-times close__modal"></i>
+            <!--Progress bar desktop-->
+            <div class="progress-bar__content space-1 space-top-1 desktop__only">
+                <p>.../ select your memebership </p>
+                <div class="progress-bar">
+                    <div class="progress-bar_fill">
+                    </div>
+                </div>
+                <div class="progress-steps">
+                    <div class="first-step active__step">
+                        <p class="mb-0">01. Select how often you come in
+                        </p>
+                        <img class="progress__img" src="./media/red-diamond.svg">
+                    </div>
+                    <div class="second-step">
+                        <p class="mb-0">02. Payment Details</p>
+                    </div>
+                    <div class="third-step">
+                        <p class="mb-0">03. Confirmation</p>
+                    </div>
+                </div>
+            </div>
+            <!--Progress bar mobile-->
+            <div class="progress-bar__content progress-bar__mobile space-1 space-top-1 mobile__only">
+                <p>.../ select your memebership </p>
+                <div class="progress-bar mt-5">
+                    <div class="progress-bar_fill">
+                    </div>
+                </div>
+                <div class="progress-steps">
+                    <div class="first-step active__step">
+                        <p class="mb-0">01. Frequency </p>
+                        <img class="progress__img" src="./media/red-diamond.svg">
+                    </div>
+                    <div class="second-step">
+                        <p class="mb-0">02. Payment </p>
+                    </div>
+                    <div class="third-step">
+                        <p class="mb-0">03. Confirmation </p>
+                    </div>
+                </div>
+            </div>
+            <!--Currently selected membership-->
+            <p class="font-bold text-grey mb-0 opacity-50">Currently selected membership</p>
+            <h2 class="font-bold uppercase selected-membership__name">The Fifteen Year</h2>
+            <!--Card main content-->
+            <div class="card space-2 space-lg-2 mt-7 main__content">
+                <div class="col-sm-10 w-md-80 w-lg-60 text-center mx-auto mb-3 fadein-1" style="">
+                    <h2 class="display-5 font-weight-bold uppercase mb-sm-4 fadeInUp u-in-viewport">
+                        HOW OFTEN DO YOU WANT TO COME IN?</h2>
+                    <p class="pb-1 mb-1"> Select one of the options below for your membership</p>
+                </div>
+                <!--Membership switcher-->
+                <div class="membership-type__switcher justify-content-center align-items-center  m0-auto">
+                    <button class="monthly__option active mr-1">Monthly</button>
+                    <div class="annual__option d-flex"> <button>Annual </button>
+                        <p class="mb-0">Save 15%</p>
+                    </div>
+                </div>
+                <!--Frequency options-->
+                <div class="frequency-options__wrapper mt-8">
+                    <div class="continous__carousel">
+                        <div class="membership-card text-center" style="order:1">
+                            <svg width="285" height="350" viewBox="0 0 285 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M284.5 20V330C284.5 340.77 275.77 349.5 265 349.5H20C9.23044 349.5 0.5 340.77 0.5 330V20C0.5 9.23045 9.23045 0.5 20 0.5H63.9801C68.559 0.5 72.9918 2.11131 76.5019 5.05159L101.528 26.0152C103.418 27.5985 105.805 28.4661 108.271 28.4661H176.993C180.054 28.4661 182.963 27.13 184.958 24.8077L200.001 7.29418C203.705 2.98131 209.108 0.5 214.793 0.5H265C275.77 0.5 284.5 9.23045 284.5 20Z" fill="white" stroke="#E7EAEA"/>
+                </svg>
+                            <img class="red-diamond__icon" src="./media/red-diamond.svg" alt="decoration-icon">
+                            <img class="accent__img top-left-corner" src="./media/red-x-icon.svg" alt="decoration-icon">
+                            <h3 class="font-weight-bold">Every week</h3>
+                            <p class="h3 membership__price uppercase font-weight-bold d-inline-block">$24.99 </p><small>/ mo</small>
+                            <small class="d-block">billed $189 annualy</small>
+                            <button class="btn_membership  button_outline m0-auto">GET STARTED</button>
+                        </div>
+                        <div class="membership-card popular text-center" style="order:2">
+                            <svg width="285" height="350" viewBox="0 0 285 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M284.5 20V330C284.5 340.77 275.77 349.5 265 349.5H20C9.23044 349.5 0.5 340.77 0.5 330V20C0.5 9.23045 9.23045 0.5 20 0.5H63.9801C68.559 0.5 72.9918 2.11131 76.5019 5.05159L101.528 26.0152C103.418 27.5985 105.805 28.4661 108.271 28.4661H176.993C180.054 28.4661 182.963 27.13 184.958 24.8077L200.001 7.29418C203.705 2.98131 209.108 0.5 214.793 0.5H265C275.77 0.5 284.5 9.23045 284.5 20Z" fill="#260E00" stroke="#E7EAEA"/>
+                </svg>
+                            <img class="accent__img top-left" src="./media/squiggle-icon.png" alt="decoration-icon">
+                            <p class="popular_memebrship">Popular</p>
+                            <img class="red-diamond__icon" src="./media/red-diamond.svg" alt="decoration-icon">
+                            <h3 class="font-weight-bold">Every 2 weeks</h3>
+                            <p class="h3 membership__price uppercase font-weight-bold d-inline-block">$24.99 </p><small>/ mo</small>
+                            <small class="d-block">billed $189 annualy</small>
+                            <button class="btn_membership  button_filled m0-auto">GET STARTED</button>
+                        </div>
+                        <div class="membership-card text-center" style="order:3">
+                            <svg width="285" height="350" viewBox="0 0 285 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M284.5 20V330C284.5 340.77 275.77 349.5 265 349.5H20C9.23044 349.5 0.5 340.77 0.5 330V20C0.5 9.23045 9.23045 0.5 20 0.5H63.9801C68.559 0.5 72.9918 2.11131 76.5019 5.05159L101.528 26.0152C103.418 27.5985 105.805 28.4661 108.271 28.4661H176.993C180.054 28.4661 182.963 27.13 184.958 24.8077L200.001 7.29418C203.705 2.98131 209.108 0.5 214.793 0.5H265C275.77 0.5 284.5 9.23045 284.5 20Z" fill="white" stroke="#E7EAEA"/>
+                </svg>
+                            <img class="red-diamond__icon" src="./media/red-diamond.svg" alt="decoration-icon">
+                            <img class="accent__img top-right" src="./media/squiggle-icon.png" alt="decoration-icon">
+                            <h3 class="font-weight-bold">Every 3 weeks</h3>
+                            <p class="h3 membership__price uppercase font-weight-bold d-inline-block">$24.99 </p><small>/ mo</small>
+                            <small class="d-block">billed $189 annualy</small>
+                            <button class="btn_membership  button_outline m0-auto">GET STARTED</button>
+                        </div>
+                        <div class="membership-card text-center" style="order:4">
+                            <svg width="285" height="350" viewBox="0 0 285 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M284.5 20V330C284.5 340.77 275.77 349.5 265 349.5H20C9.23044 349.5 0.5 340.77 0.5 330V20C0.5 9.23045 9.23045 0.5 20 0.5H63.9801C68.559 0.5 72.9918 2.11131 76.5019 5.05159L101.528 26.0152C103.418 27.5985 105.805 28.4661 108.271 28.4661H176.993C180.054 28.4661 182.963 27.13 184.958 24.8077L200.001 7.29418C203.705 2.98131 209.108 0.5 214.793 0.5H265C275.77 0.5 284.5 9.23045 284.5 20Z" fill="white" stroke="#E7EAEA"/>
+                </svg>
+                            <img class="accent__img top-left-corner" src="./media/scissors-icon.svg" alt="decoration-icon">
+
+                            <img class="red-diamond__icon" src="./media/red-diamond.svg" alt="decoration-icon">
+                            <h3 class="font-weight-bold">Every 4 weeks</h3>
+                            <p class="h3 membership__price uppercase font-weight-bold d-inline-block">$24.99 </p><small>/ mo</small>
+                            <small class="d-block">billed $189 annualy</small>
+                            <button class="btn_membership  button_outline m0-auto">GET STARTED</button>
+                        </div>
+                        <div class="membership-card text-center" style="order:5">
+                            <svg width="285" height="350" viewBox="0 0 285 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M284.5 20V330C284.5 340.77 275.77 349.5 265 349.5H20C9.23044 349.5 0.5 340.77 0.5 330V20C0.5 9.23045 9.23045 0.5 20 0.5H63.9801C68.559 0.5 72.9918 2.11131 76.5019 5.05159L101.528 26.0152C103.418 27.5985 105.805 28.4661 108.271 28.4661H176.993C180.054 28.4661 182.963 27.13 184.958 24.8077L200.001 7.29418C203.705 2.98131 209.108 0.5 214.793 0.5H265C275.77 0.5 284.5 9.23045 284.5 20Z" fill="white" stroke="#E7EAEA"/>
+                </svg>
+                            <img class="red-diamond__icon" src="./media/red-diamond.svg" alt="decoration-icon">
+                            <img class="accent__img right-centered rotate-90" src="./media/squiggle-icon.png" alt="decoration-icon">
+
+                            <h3 class="font-weight-bold">Every 5 weeks</h3>
+                            <p class="h3 membership__price uppercase font-weight-bold d-inline-block">$24.99 </p><small>/ mo</small>
+                            <small class="d-block">billed $189 annualy</small>
+                            <button class="btn_membership  button_outline m0-auto">GET STARTED</button>
+                        </div>
+                    </div>
+                    <!--Navigation arrows-->
+                    <div class="arrows-wrapper">
+                        <i class="fas fa-arrow-circle-left left"></i>
+                        <i class="fas fa-arrow-circle-right right"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--Annual up-sell modal -->
+    <div class="modal__wrapper annual__switch hide_el">
+        <div class="card main__content container text-center justify-content-center">
+            <i class="fas fa-times close__modal"></i>
+            <img class="wiskey-glass-double" src="./media/wiskey-glass-double.svg" alt="decoration-icon">
+            <h2 class="text-white w-80">DO YOU WANT TO SWITCH TO ANNUAL PLAN & SAVE UP TO<span class="text-secondary"> 15%</span>?</h2>
+            <div class="monthly-price__wrapper">
+                <p class="monthly__price d-inline-block text-white font-weight-bold">$19.99</p><small class="text-white font-size-1">monthly plan</small>
+            </div>
+            <div class="annual-price__wrapper">
+                <p class="annual__price d-inline-block text-secondary font-weight-bold">$12.99</p>
+                <small class="text-white font-size-1">annual plan</small> </div>
+            <div class="annual-switch__buttons mt-4">
+                <button class="cancel-annual_switch">NO THANKS</button>
+                <button class="approve-annual_switch">LET'S DO IT</button>
+            </div>
+
+        </div>
+    </div>
+    <!--Payment  modal-->
+    <div class="modal__wrapper payment-details__modal hide_el">
+        <div class="container">
+            <i class="fas fa-times close__modal"></i>
+            <!--Progress bar desktop-->
+            <div class="progress-bar__content space-1 space-top-1 desktop__only">
+                <p>... / select your memebership </p>
+                <div class="progress-bar">
+                    <div style='width: 75%' class="progress-bar_fill">
+                    </div>
+                </div>
+                <div class="progress-steps">
+                    <div class="first-step completed__step">
+                        <p class="mb-0">01. Select how often you come in
+                        </p>
+                        <small class="selected-stylist__name">Every 3 weeks</small>
+                    </div>
+                    <div class="second-step active__step">
+                        <p class="mb-0">02. Payment Details</p>
+                        <img class="progress__img" src="./media/red-diamond.svg">
+                    </div>
+                    <div class="third-step">
+                        <p class="mb-0">03. Confirmation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar__content progress-bar__mobile space-1 space-top-1 mobile__only">
+                <p>... / select your memebership </p>
+                <div class="progress-bar mt-5">
+                    <div style='width: 75%' class="progress-bar_fill">
+                    </div>
+                </div>
+                <div class="progress-steps">
+                    <div class="first-step completed__step">
+                        <p class="mb-0">01. Frequency </p>
+                    </div>
+                    <div class="second-step active__step">
+                        <p class="mb-0">02. Payment </p>
+                        <img class="progress__img" src="./media/red-diamond.svg">
+                    </div>
+                    <div class="third-step">
+                        <p class="mb-0">03. Confirmation </p>
+                    </div>
+                </div>
+            </div>
+            <!--Modal main content-->
+            <div class="card space-3 space-lg-3 mt-5 main__content">
+                <!--Payment & membership details-->
+                <div class="payment__content container">
+                    <!--Payment form-->
+                    <div class="payment-info__wrapper">
+                        <h2 class="text-grey mb-4">Payment Info</h2>
+                        <form id="membership-payment__form">
+                            <label class="font-weight-bold" for="card_number">Card Number</label>
+                            <p class="mb-2">Enter the 16-digit card number from your card</p>
+                            <input type="text" name="card_number" id="card_number" pattern="{13,19}" maxlength="19" placeholder="4242 - 4242 - 4242 - 4242">
+                            <div class="d-flex mt-4 mb-4 sub_fields">
+                                <div>
+                                    <label class="font-weight-bold" for="ccv_number">CCV Number</label>
+                                    <p class="mb-2">Enter the 3 or 4 digit number on the card</p>
+                                    <input type="text" name="ccv_number" id="ccv_number" pattern="{1,3}" maxlength="3" placeholder="123">
+                                </div>
+                                <div>
+                                    <label class="font-weight-bold" for="">Expiry Date</label>
+                                    <p class="mb-2">Enter the expiration date on the card</p>
+                                    <select name="choice">
+                                        <option value="01">01</option>
+                                        <option value="02" >02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05" >05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08" >08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11" >11</option>
+                                        <option value="12">12</option>
+                                      </select>
+                                    <p class="d-inline pl-2 pr-2 font-weight-bold text-black">/</p>
+                                    <select name="choice">
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024" >2024</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027" >2027</option>
+                                        <option value="2028">2028</option>
+                                        <option value="2029">2029</option>
+                                        <option value="2030" >2030</option>
+                                        <option value="2031">2031</option>
+                                        <option value="2032">2032</option>
+                                        <option value="2033" >2033</option>
+                                        <option value="2034">2034</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="button_filled">PAY $26.99</button>
+                        </form>
+                    </div>
+                    <!--Membership summary info-->
+                    <div class="summary-info__wrapper">
+                        <h2 class="text-grey mb-4">Membership summary</h2>
+                        <div class="summary-info__content">
+                            <div class="d-flex">
+                                <p class="border-bottom pb-4 mobile__only total_highlight">Total:<span class="membership_total">$26.99</span></p>
+                                <button class="show-summary hidden  mobile__only">See all</button>
+                            </div>
+                            <p class="hide__mobile">Membership:<span class="membership_name">The Fifteen Year</span></p>
+                            <p class="hide__mobile">Frequency:<span class="membership_frequency">Every 3 weeks</span></p>
+                            <p class="border-bottom pb-4 hide__mobile">Billing Cycle:<span class="membership-billing_cycle"> Monthly</span></p>
+                            <p class="border-bottom pb-4 desktop__only hide__mobile">Total:<span class="membership_total">$26.99</span></p>
+                        </div>
+                        <div class="switch-to__annual">
+                            <p class="mb-1">Switch to annual & save up to 15%</p>
+                            <button>SWITCH NOW</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Decorations-->
+                <img class="accent__img top-left" src="./media/squiggle-icon.png" alt="decoration-icon">
+                <img class="accent__img top-right" src="./media/wiskey-glass.svg" alt="decoration-icon">
+                <img class="accent__img right-centered rotate-90" src="./media/squiggle-icon.png" alt="decoration-icon">
+                <!--accepted cards-->
+                <div class="accepted_cards mt-5 container">
+                    <p>We accept the following cards</p>
+                    <img src="./media/MasterCard.svg" alt="master-card-icon">
+                    <img src="./media/Visa.svg" alt="visa-card-icon">
+                    <img src="./media/DinersClub.svg" alt="diners-card-icon">
+                    <img src="./media/AmericanExpress.svg" alt="american-express-card-icon">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--Purchase summary modal-->
+    <div class="modal__wrapper purchase-summary__modal hide_el">
+        <div class="container">
+            <i class="fas fa-times close__modal"></i>
+            <!--Progress bar desktop-->
+            <div class="progress-bar__content space-1 space-top-1 desktop__only">
+                <p>... / select your memebership </p>
+                <div class="progress-bar">
+                    <div style='width: 98%' class="progress-bar_fill">
+                    </div>
+                </div>
+                <div class="progress-steps">
+                    <div class="first-step completed__step">
+                        <p class="mb-0">01. Select how often you come in
+                        </p>
+                        <small class="selected-stylist__name">Every 3 weeks</small>
+                    </div>
+                    <div class="second-step completed__step">
+                        <p class="mb-0">02. Payment info</p>
+
+                    </div>
+                    <div class="third-step active__step">
+                        <p class="mb-0">03. Confirmation</p>
+                        <img class="progress__img" src="./media/red-diamond.svg">
+                    </div>
+                </div>
+            </div>
+            <!--Progress bar mobile-->
+            <div class="progress-bar__content progress-bar__mobile space-3 space-top-3 mobile__only">
+                <p>... / select your memebership</p>
+                <div class="progress-bar mt-5">
+                    <div style='width: 94%' class="progress-bar_fill">
+                    </div>
+                </div>
+                <div class="progress-steps">
+                    <div class="first-step completed__step">
+                        <p class="mb-0">01. Frequency</p>
+                    </div>
+                    <div class="second-step completed__step">
+                        <p class="mb-0">02. Payment </p>
+                    </div>
+                    <div class="third-step active__step">
+                        <p class="mb-0">03. Time </p>
+                        <img class="progress__img" src="./media/red-diamond.svg">
+                    </div>
+                </div>
+            </div>
+            <!--Modal main content-->
+            <div class="card space-2 space-lg-2 mt-7 main__content">
+                <div class="w-80 w-lg-60 text-center mx-auto mb-3 fadein-1" style="">
+                    <h2 class="display-5 font-weight-bold uppercase mb-sm-4 fadeInUp u-in-viewport">
+                        THANK YOU FOR PURCHASING A MEMBERSHIP</h2>
+                    <p class="border-bottom pb-3 mb-3"> S&S memberships let you design your perfect service package in two easy steps. First, choose how often you want to come in
+                    </p>
+                </div>
+                <div class="summary-card popular text-center">
+                    <svg width="333" height="450" viewBox="0 0 333 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M332.5 20V430C332.5 440.77 323.77 449.5 313 449.5H20C9.23046 449.5 0.5 440.77 0.5 430V20C0.5 9.23045 9.23045 0.5 20 0.5H76.79C80.8848 0.5 84.8758 1.78907 88.1969 4.18444L119.119 26.4868C120.907 27.7766 123.056 28.4708 125.261 28.4708H208.205C211.097 28.4708 213.861 27.2779 215.844 25.1737L233.334 6.6231C237.019 2.71522 242.152 0.5 247.522 0.5H313C323.77 0.5 332.5 9.23045 332.5 20Z" fill="#260E00" stroke="#E7EAEA"/>
+                        </svg>
+                    <img class="accent__img top-left" src="./media/squiggle-icon.png" alt="">
+                    <img class="red-diamond__icon" src="./media/red-diamond.svg" alt="">
+                    <h3>SUMMARY</h3>
+                    <p>Selected Membership:</p>
+                    <span class="membership_name">The Fifteen Year</span>
+                    <p>Frequency:</p>
+                    <span class="membership_frequency">Every 3 weeks</span>
+                    <p>Billing Cycle:</p>
+                    <span class="membership-billing_cycle"> Monthly</span>
+                    <hr class="w-20">
+                    <p>Total:</p>
+                    <span class="membership_total">$26.99<small> / mo</small></span>
+                    <img class="accent__img bottom-right-corner" src="./media/scissors-icon.svg" alt="">
+                </div>
+                <!-- Decorations -->
+                <img class="accent__img left-centered" src="./media/squiggle-icon.png" alt="decoration-icon">
+                <img class="accent__img right-centered rotate-90" src="./media/squiggle-icon.png" alt="decoration-icon">
+                <img class="accent__img top-right" src="./media/squiggle-icon.png" alt="decoration-icon">
+
+                <!--Make a booking-->
+                <div class="w-80 w-lg-60 text-center mx-auto book-new__visit">
+                    <p>Do you want to make a booking for your next visit?</p>
+                    <button class='button_filled'>Book now</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--Membership packages modal-->
+    <div class="modal__wrapper change__location hide_el">
+        <div class="container">
+            <i class="fas fa-times close__modal"></i>
+            <!--Progress bar desktop-->
+            <div class="progress-bar__content space-3 space-top-3 desktop__only">
+                <p>.../ adjust your usual appointment </p>
+                <div class="progress-bar">
+                    <div style='width: 25%' class="progress-bar_fill">
+                    </div>
+                </div>
+                <div class="progress-steps">
+                    <div class="first-step active__step">
+                        <p class="mb-0">01. Select Location </p>
+                        <img class="progress__img" src="./media/red-diamond.svg">
+                    </div>
+                    <div class="second-step">
+                        <p class="mb-0">02. Choose your stylist
+                        </p>
+                    </div>
+                    <div class="third-step">
+                        <p class="mb-0">03. Select the day</p>
+                    </div>
+                    <div class="fourth-step">
+                        <p class="mb-0">04. Choose a time</p>
+                    </div>
+                </div>
+            </div>
+            <!--Progress bar mobile-->
+            <div class="progress-bar__content progress-bar__mobile space-3 space-top-3 mobile__only">
+                <p>.../ adjust your usual appointment </p>
+                <div class="progress-bar mt-5">
+                    <div style='width: 38%' class="progress-bar_fill">
+                    </div>
+                </div>
+                <div class="progress-steps justify-content-center">
+                    <div class="first-step active__step">
+                        <p class="mb-0">01. Location </p>
+                        <img class="progress__img" src="./media/red-diamond.svg">
+                    </div>
+                </div>
+            </div>
+            <!--Modal main content-->
+            <div class="card space-2 space-lg-2 mt-7 main__content">
+                <div class="w-80 w-lg-60 text-center mx-auto mb-3 fadein-1" style="">
+                    <h2 class="display-5 font-weight-bold uppercase mb-sm-4 fadeInUp u-in-viewport">
+                        SELECT A NEW LOCATION </h2>
+                    <p class="border-bottom pb-3 mb-3"> You current location is: <span> <strong
+                                    class="text-brown">Lowry |
+                                    Colorado</strong></span>
+                    </p>
+                </div>
+                <!--Membership packages-->
+                <div class="membership-packages__wrapper pt-9">
+                    <div class="continous__carousel">
+                        <div class="membership-card sell-points" style="order:1">
+                            <svg width="322" height="547" viewBox="0 0 322 547" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.5 20C0.5 9.23046 9.23045 0.5 20 0.5H72.7831C77.6251 0.5 82.294 2.30143 85.8811 5.55375L114.806 31.7787C116.737 33.53 119.251 34.5 121.858 34.5H200.5C203.805 34.5 206.917 32.944 208.9 30.3L225.4 8.3C229.083 3.38979 234.862 0.5 241 0.5H302C312.77 0.5 321.5 9.23045 321.5 20V527C321.5 537.77 312.77 546.5 302 546.5H20C9.23045 546.5 0.5 537.77 0.5 527V20Z" fill="white" stroke="#E7EAEA"/>
+                        </svg>
+
+                            <img class="accent__img top-left" src="./media/squiggle-icon.png" alt="decoration-icon">
+                            <h3 class="uppercase font-weight-bold">THE TEN YEAR</h3>
+                            <p class="lead membership-description">Full-service cuts to keep you looking your best.</p>
+                            <small>starting from</small>
+                            <p class="h3 membership__price uppercase font-weight-bold">$36.99</p>
+                            <hr>
+                            <img class="accent__img middle-left" src="./media/red-x-icon.svg" alt="decoration-icon">
+                            <ul class="text-left membership__benefits">
+                                <li>Full service haircut & style</li>
+                                <li>Cleansing shampoo & conditioning treatment
+                                </li>
+                                <li>Rejuvenating steamed towel treatment & back of neck razor</li>
+                            </ul>
+                            <button class="btn_membership button_outline m0-auto">GET STARTED</button>
+                        </div>
+                        <div class="membership-card sell-points popular" style="order:2">
+                            <svg width="322" height="547" viewBox="0 0 322 547" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.5 20C0.5 9.23046 9.23045 0.5 20 0.5H72.7831C77.6251 0.5 82.294 2.30143 85.8811 5.55375L114.806 31.7787C116.737 33.53 119.251 34.5 121.858 34.5H200.5C203.805 34.5 206.917 32.944 208.9 30.3L225.4 8.3C229.083 3.38979 234.862 0.5 241 0.5H302C312.77 0.5 321.5 9.23045 321.5 20V527C321.5 537.77 312.77 546.5 302 546.5H20C9.23045 546.5 0.5 537.77 0.5 527V20Z" fill="#260E00" stroke="#E7EAEA"/>
+                        </svg>
+
+                            <p class="popular_memebrship">Popular</p>
+                            <img class="accent__img top-center" src="./media/squiggle-icon.png" alt="decoration-icon">
+                            <h3 class="uppercase font-weight-bold">THE FIFTEEN YEAR</h3>
+                            <p class="lead membership-description">Upgraded visits that leave you feeling refreshed.</p>
+                            <small>starting from</small>
+                            <p class="membership__price uppercase font-weight-bold">$36.99</p>
+                            <hr>
+                            <ul class="text-left membership__benefits">
+                                <li>Full service haircut & style</li>
+                                <li>Cleansing shampoo & conditioning treatment
+                                </li>
+                                <li>Rejuvenating steamed towel treatment & back of neck razor</li>
+                                <li>Shooting scalp massage & face refresher</li>
+
+                            </ul>
+                            <button class="btn_membership  button_filled m0-auto">GET STARTED</button>
+                        </div>
+                        <div class="membership-card sell-points" style="order:3">
+                            <svg width="322" height="547" viewBox="0 0 322 547" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.5 20C0.5 9.23046 9.23045 0.5 20 0.5H72.7831C77.6251 0.5 82.294 2.30143 85.8811 5.55375L114.806 31.7787C116.737 33.53 119.251 34.5 121.858 34.5H200.5C203.805 34.5 206.917 32.944 208.9 30.3L225.4 8.3C229.083 3.38979 234.862 0.5 241 0.5H302C312.77 0.5 321.5 9.23045 321.5 20V527C321.5 537.77 312.77 546.5 302 546.5H20C9.23045 546.5 0.5 537.77 0.5 527V20Z" fill="white" stroke="#E7EAEA"/>
+                        </svg>
+                            <img class="accent__img top-left rotate-90" src="./media/squiggle-icon.png" alt="">
+                            <h3 class="uppercase font-weight-bold">THE TWENTY-FIVE YEAR</h3>
+                            <p class="lead membership-description">One helluva grooming experience.</p>
+                            <small>starting from</small>
+                            <p class="h3 membership__price uppercase font-weight-bold">$36.99</p>
+                            <hr>
+                            <ul class="text-left membership__benefits">
+                                <li>Full service haircut & style</li>
+                                <li>Cleansing shampoo & conditioning treatment
+                                </li>
+                                <li>Rejuvenating steamed towel treatment & back of neck razor</li>
+                                <li>Shooting scalp massage & face refresher</li>
+                                <li>Relaxing paraffin hand dip and neck, shoulder, and hand massage.</li>
+
+                            </ul>
+                            <button class="btn_membership button_outline m0-auto">GET STARTED</button>
+                        </div>
+                        <div class="membership-card" style="order:4">
+                            <svg width="322" height="289" viewBox="0 0 322 289" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M321.5 20V269C321.5 279.77 312.77 288.5 302 288.5H20C9.23045 288.5 0.5 279.77 0.5 269V20C0.5 9.23045 9.23045 0.5 20 0.5H72.5317C77.5204 0.5 82.3194 2.41198 85.9413 5.84256L116.264 34.5631C118.214 36.4103 120.798 37.4398 123.484 37.4398H201.367C204.75 37.4398 207.926 35.8095 209.898 33.0603L227.422 8.63338C231.085 3.52781 236.983 0.5 243.266 0.5H302C312.77 0.5 321.5 9.23045 321.5 20Z" fill="white" stroke="#E7EAEA"/>
+                    </svg>
+                            <img class="accent__img top-left-corner" src="./media/scissors-icon.svg" alt="">
+                            <h3 class="uppercase font-weight-bold">THE BUZZ CUT</h3>
+                            <p class="lead membership-description">A shorter option that never leaves you short of looking your best. </p>
+                            <small>starting from</small>
+                            <p class="h3 membership__price uppercase font-weight-bold">$24.99</p>
+                            <button class="btn_membership  button_outline m0-auto">GET STARTED</button>
+                        </div>
+                        <div class="membership-card" style="order:5">
+                            <svg width="322" height="289" viewBox="0 0 322 289" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M321.5 20V269C321.5 279.77 312.77 288.5 302 288.5H20C9.23045 288.5 0.5 279.77 0.5 269V20C0.5 9.23045 9.23045 0.5 20 0.5H72.5317C77.5204 0.5 82.3194 2.41198 85.9413 5.84256L116.264 34.5631C118.214 36.4103 120.798 37.4398 123.484 37.4398H201.367C204.75 37.4398 207.926 35.8095 209.898 33.0603L227.422 8.63338C231.085 3.52781 236.983 0.5 243.266 0.5H302C312.77 0.5 321.5 9.23045 321.5 20Z" fill="white" stroke="#E7EAEA"/>
+                    </svg>
+                            <img class="accent__img top-right" src="./media/squiggle-icon.png" alt="decoration-icon">
+                            <h3 class="uppercase font-weight-bold">THE JUNIOR CUT</h3>
+                            <p class="lead membership-description">A Ten Year cut for the next generation of gentlemen.</p>
+                            <small>starting from</small>
+                            <p class="h3 membership__price uppercase font-weight-bold">$34.99</p>
+                            <button class="btn_membership button_outline m0-auto">GET STARTED</button>
+                        </div>
+                    </div>
+                    <!--Navigation arrows-->
+                    <div class="arrows-wrapper">
+                        <i class="fas fa-arrow-circle-left left"></i>
+                        <i class="fas fa-arrow-circle-right right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
