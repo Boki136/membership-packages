@@ -129,16 +129,19 @@ function moveRight() {
 }
 
 //remove body overflow when modal opens up
-
-$('.btn_membership').click(function() {
-if($('.modal__wrapper').css('display') == 'block') {
+$('.btn_membership').each(function() {
+$(this).click(function() {
+  if($('.modal__wrapper').css('display') == 'block') {
   $('body').css('overflow-y', 'hidden')
 }
+})
 });
 
-$('.close__modal').click(function() {
-  $('body').css('overflow-y', 'visible')
+$('.close__modal').each(function() {
+$(this).click(function() {
+  $('body').css('overflow-y', 'visible');
 })
+});
 
 //open annual up-sell modal
 $('.frequency-options__modal .btn_membership').click(function() {
