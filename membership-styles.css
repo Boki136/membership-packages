@@ -533,7 +533,6 @@
 .modal__wrapper.purchase-summary__modal {
     background-image: url(./media/faded-icons-background.jpg);
     background-size: cover;
-    overflow-y: hidden;
 }
 
 .summary-card {
