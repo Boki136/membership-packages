@@ -24,6 +24,7 @@
     border: none;
     background-color: transparent;
     outline: none;
+    color: #1e2022; 
 }
 
 .membership-type__switcher .active {
@@ -77,6 +78,7 @@
     bottom: 5px;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: #1e2022;
 }
 
 .button_outline {
@@ -458,6 +460,7 @@
     border: none;
     border-radius: 5px;
     padding-left: 15px;
+    color: #1e2022;
 }
 
 #membership-payment__form input::placeholder,
