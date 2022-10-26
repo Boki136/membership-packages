@@ -34,6 +34,10 @@
     color: #fff !important;
 }
 
+.membership-type__switcher .active > * {
+color: #fff;
+}
+
 .monthly__option,
 .annual__option {
     transition: .15s ease-in;
