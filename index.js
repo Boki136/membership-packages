@@ -218,3 +218,9 @@ $('.purchase-summary__modal .close__modal').click(function() {
 	$('.purchase-summary__modal').fadeOut(200);
 });
 
+//prevent payment form from submitting -- remove when going live
+
+$('#membership-payment__form').click(function(e) {
+	e.preventDefault();
+})
+
