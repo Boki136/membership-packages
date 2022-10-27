@@ -1,147 +1,131 @@
 /* Montly switcher */
-
-$('.annual__option').each(function() {
-    $('.annual__option').click(function() {
-        $('.annual__option').addClass('active');
-        $('.monthly__option').removeClass('active')
-    })
-});
-$('.monthly__option').each(function() {
-    $('.monthly__option').click(function() {
-        $('.monthly__option').addClass('active');
-        $('.annual__option').removeClass('active')
-    })
-
+$('.monthly__option, .annual__option').click(function() {
+	if (!$(this).hasClass('active')) {
+		$('.monthly__option, .annual__option').toggleClass('active');
+	}
 });
 
 /* ----- Carousel controls ----- */
+let firstCount;
+let lastCount;
+let offset;
+let lastPossibleOrder;
 
-let count = 0;
-let count2 = 3;
-let lastCardOrder;
+function setCounts() {
+	let carousel = setCarousel();
+	lastPossibleOrder = $(carousel).children().length - 1;
+	firstCount = 0;
+	lastCount = lastPossibleOrder;
+}
+setCounts();
+
+function setCarousel() {
+	let carousel = $('.continous__carousel')[0];
+	if ($('.modal__wrapper').css('display') != 'none') {
+		carousel = $('.continous__carousel')[1];
+	}
+	setOffset(carousel);
+	return carousel;
+}
+
+function setOffset(carousel) {
+	offset =
+		($(carousel).width() -
+			$(carousel).children().length *
+				$(carousel).children(':first-child').outerWidth()) /
+			($(carousel).children().length - 1) +
+		$(carousel).children(':first-child').outerWidth();
+}
 
 $('.arrows-wrapper .right').click(moveLeft);
-$('.arrows-wrapper .left').click(moveRight);
-
-//Move carousel left, change order of first card to last
 function moveLeft() {
-	let _this = this;
-	let leftOffset = $(this)
-		.parent()
-		.parent()
-		.find('.continous__carousel')
-		.css('width');
-	leftOffset = leftOffset.slice(0, -2) / 4;
-    console.log(leftOffset)
-	$('.left').unbind('click');
-	$('.right').unbind('click');
-	$(this).parent().parent().find('.continous__carousel').animate(
-		{
-			left: `-${leftOffset}px`
-		},
-		300
+	let carousel = setCarousel();
+	let firstDiv = $(carousel).children()[firstCount];
+	let lastCardOrder = parseInt(
+		$(carousel).children()[lastCount].style.order
 	);
-	firstDiv = $(this)
-		.parent()
-		.parent()
-		.find('.continous__carousel')
-		.children()[count];
-	lastCardOrder = parseInt(
-		$(this).parent().parent().find('.continous__carousel').children()[
-			count2
-		].style.order
-	);
-	/*timeout*/
+
+	$('.left, .right').unbind('click');
+
+	$(carousel).animate({ left: `-${offset}px` }, 300);
+
 	setTimeout(function() {
 		firstDiv.style.order = lastCardOrder + 1;
-		$(_this)
-			.parent()
-			.parent()
-			.find('.continous__carousel')
-			.css('left', '0');
-
+		$(carousel).css('left', '0');
 		$('.left').click(moveRight);
 		$('.right').click(moveLeft);
 	}, 350);
 
-	/*timeout*/
-
-	if (count === 3) {
-		count = 0;
+	if (firstCount === lastPossibleOrder) {
+		firstCount = 0;
 	} else {
-		count++;
+		firstCount++;
 	}
-	if (count2 === 3) {
-		count2 = 0;
+	
+	if (lastCount === lastPossibleOrder) {
+		lastCount = 0;
 	} else {
-		count2++;
+		lastCount++;
 	}
 }
-//Move carousel right, change order of last card to first
+
+$('.arrows-wrapper .left').click(moveRight);
 function moveRight() {
-	let _this = this;
-	let leftOffset = $(this)
-		.parent()
-		.parent()
-		.find('.continous__carousel')
-		.css('width');
-	leftOffset = leftOffset.slice(0, -2) / 4;
-    console.log(leftOffset);
-	$('.left').unbind('click');
-	$('.right').unbind('click');
-	let lastDiv = $(this)
-		.parent()
-		.parent()
-		.find('.continous__carousel')
-		.children()[count2];
+	let carousel = setCarousel();
+	let lastDiv = $(carousel).children()[lastCount];
 	let firstCardOrder = parseInt(
-		$(this).parent().parent().find('.continous__carousel').children()[
-			count
-		].style.order
+		$(carousel).children()[firstCount].style.order
 	);
+
+	$('.left, .right').unbind('click');
+
 	lastDiv.style.order = firstCardOrder - 1;
-	$(_this)
-		.parent()
-		.parent()
-		.find('.continous__carousel')
-		.css('left', `-${leftOffset}px`);
-	$(_this).parent().parent().find('.continous__carousel').animate(
-		{
-			left: '0px'
-		},
-		300
-	);
+
+	$(carousel).css('left', `-${offset}px`);
+	$(carousel).animate({ left: '0px' }, 300);
+
 	setTimeout(function() {
 		$('.left').click(moveRight);
 		$('.right').click(moveLeft);
 	}, 350);
 
-	if (count === 0) {
-		count = 3;
+	if (firstCount === 0) {
+		firstCount = lastPossibleOrder;
 	} else {
-		count--;
+		firstCount--;
 	}
-	if (count2 === 0) {
-		count2 = 3;
+	
+	if (lastCount === 0) {
+		lastCount = lastPossibleOrder;
 	} else {
-		count2--;
+		lastCount--;
 	}
 }
 
-//remove body overflow when modal opens up
-$('.btn_membership').each(function() {
-$(this).click(function() {
-  if($('.modal__wrapper').css('display') == 'block') {
-  $('body').css('overflow-y', 'hidden')
+function resetCarouselOrder() {
+	setCounts();
+	let carousel = setCarousel();
+	for (let i = 0; i <= lastCount; i++) {
+		$($(carousel).children()[i]).css('order', i);
+	}
 }
-})
+
+//open frequency modal
+$('.membership-packages__wrapper .btn_membership').click(function() {
+	$('.frequency-options__modal').fadeIn('hide_el');
+	resetCarouselOrder();
+	let selectedMembershipName = $(this).parent().find('h3').text();
+	$('.selected-membership__name').text(selectedMembershipName);
 });
 
-$('.close__modal').each(function() {
-$(this).click(function() {
-  $('body').css('overflow-y', 'visible');
-})
+//close frequency modal
+$('.frequency-options__modal .close__modal').click(function() {
+	$('.frequency-options__modal').fadeOut(150).promise().done(function () {
+		resetCarouselOrder();
+	});
 });
+
+/* Ne ne kjs ti brio valjda, nisam testao nes puno, jedino kj se vidi da se reseta original carousel jer se dogadja nakon animacije al mi se neda vise tako da good luck to ya, trebalo bi saveati old count i onda ga vratit da se uopce ne reseta original carousel. HUUUU --- END */
 
 //open annual up-sell modal
 $('.frequency-options__modal .btn_membership').click(function() {
@@ -151,39 +135,6 @@ $('.frequency-options__modal .btn_membership').click(function() {
 //close annual up-sell modal
 $('.annual__switch .close__modal').click(function() {
 	$('.annual__switch').fadeOut(200);
-});
-//open frequency modal
-$('.membership-packages__wrapper .btn_membership').click(function() {
-	$('.frequency-options__modal').fadeIn('hide_el');
-	// reset membership cards
-	count = 0;
-	count2 = 3;
-
-	for (let i = 0; i <= 4; i++) {
-		$(
-			'.membership-packages__wrapper .continous__carousel .membership-card:eq(' +
-				i +
-				')'
-		).css('order', i);
-	}
-	//replicate membership name to frequency modal
-	let selectedMembershipName = $(this).parent().find('h3').text();
-	$('.selected-membership__name').text(selectedMembershipName);
-});
-//close frequency modal
-$('.frequency-options__modal .close__modal').click(function() {
-	$('.frequency-options__modal').fadeOut(150);
-	// reset frequency cards
-	count = 0;
-	count2 = 3;
-
-	for (let i = 0; i <= 4; i++) {
-		$(
-			'.frequency-options__wrapper .continous__carousel .membership-card:eq(' +
-				i +
-				')'
-		).css('order', i);
-	}
 });
 
 //add dash for every 4th number
@@ -199,8 +150,8 @@ $('#membership-payment__form input#card_number').keyup(function() {
 let btnClick = 0;
 $('.show-summary').click(function() {
 	if (btnClick % 2) {
-		$(this).closest('.summary-info__content').children().slideUp(150);
 		$('.summary-info__content .d-flex').removeClass('highlighted');
+		$(this).closest('.summary-info__content').children().slideUp(150);
 		$(this).text('See all');
 	} else {
 		$('.summary-info__content .d-flex').addClass('highlighted');
@@ -227,7 +178,7 @@ $('.payment-details__modal .close__modal').click(function() {
 //open confirmation modal
 $('#membership-payment__form button').click(function() {
 	$('.purchase-summary__modal').fadeIn(200);
-    $('.payment-details__modal').fadeOut(200);
+	$('.payment-details__modal').fadeOut(200);
 });
 //close confirmation modal
 $('.purchase-summary__modal .close__modal').click(function() {
@@ -238,5 +189,4 @@ $('.purchase-summary__modal .close__modal').click(function() {
 
 $('#membership-payment__form').click(function(e) {
 	e.preventDefault();
-})
-
+});
