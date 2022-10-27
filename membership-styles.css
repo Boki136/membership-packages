@@ -768,7 +768,7 @@
     }
     .membership-packages__wrapper .continous__carousel {
         width: 1350px;
-        justify-content: space-around;
+        justify-content: space-between;
     }
     .membership-packages__wrapper,
     .frequency-options__wrapper {
