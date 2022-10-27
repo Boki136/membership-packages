@@ -6,22 +6,33 @@ $('.monthly__option, .annual__option').click(function() {
 });
 
 /* ----- Carousel controls ----- */
+
+$( $('.continous__carousel')).on( "swiperight", function(){
+	$('.arrows-wrapper .left').trigger('click');
+});
+$( $('.continous__carousel')).on( "swipeleft", function(){
+	$('.arrows-wrapper .right').trigger('click');
+});
+
+
 let firstCount;
 let lastCount;
 let offset;
 let lastPossibleOrder;
+let isSecondCarouselOn = false;
 
 function setCounts() {
 	let carousel = setCarousel();
 	lastPossibleOrder = $(carousel).children().length - 1;
 	firstCount = 0;
 	lastCount = lastPossibleOrder;
+	return carousel;
 }
 setCounts();
 
 function setCarousel() {
 	let carousel = $('.continous__carousel')[0];
-	if ($('.modal__wrapper').css('display') != 'none') {
+	if (isSecondCarouselOn) {
 		carousel = $('.continous__carousel')[1];
 	}
 	setOffset(carousel);
@@ -103,8 +114,7 @@ function moveRight() {
 }
 
 function resetCarouselOrder() {
-	setCounts();
-	let carousel = setCarousel();
+	carousel = setCounts();
 	for (let i = 0; i <= lastCount; i++) {
 		$($(carousel).children()[i]).css('order', i);
 	}
@@ -113,6 +123,7 @@ function resetCarouselOrder() {
 //open frequency modal
 $('.membership-packages__wrapper .btn_membership').click(function() {
 	$('.frequency-options__modal').fadeIn('hide_el');
+	isSecondCarouselOn = true;
 	resetCarouselOrder();
 	let selectedMembershipName = $(this).parent().find('h3').text();
 	$('.selected-membership__name').text(selectedMembershipName);
@@ -120,12 +131,10 @@ $('.membership-packages__wrapper .btn_membership').click(function() {
 
 //close frequency modal
 $('.frequency-options__modal .close__modal').click(function() {
-	$('.frequency-options__modal').fadeOut(150).promise().done(function () {
-		resetCarouselOrder();
-	});
+	isSecondCarouselOn = false;
+	resetCarouselOrder();
+	$('.frequency-options__modal').fadeOut(150);	
 });
-
-/* Ne ne kjs ti brio valjda, nisam testao nes puno, jedino kj se vidi da se reseta original carousel jer se dogadja nakon animacije al mi se neda vise tako da good luck to ya, trebalo bi saveati old count i onda ga vratit da se uopce ne reseta original carousel. HUUUU --- END */
 
 //open annual up-sell modal
 $('.frequency-options__modal .btn_membership').click(function() {
