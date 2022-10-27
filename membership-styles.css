@@ -814,6 +814,7 @@
     }
     .modal__wrapper .main__content {
         padding: 2rem 0 !important;
+        margin-bottom: 2rem;
     }
 }
 
