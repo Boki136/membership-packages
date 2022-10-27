@@ -24,7 +24,7 @@
     border: none;
     background-color: transparent;
     outline: none;
-    color: #1e2022; 
+    color: #1e2022;
 }
 
 .membership-type__switcher .active {
@@ -34,8 +34,8 @@
     color: #fff !important;
 }
 
-.membership-type__switcher .active > * {
-color: #fff;
+.membership-type__switcher .active>* {
+    color: #fff;
 }
 
 .monthly__option,
@@ -636,7 +636,7 @@ color: #fff;
 
 @media only screen and (max-width: 1200px) {
     .membership-packages__wrapper .continous__carousel {
-        width: 1400px;
+        width: 1350px;
         justify-content: space-between;
     }
     .membership-packages__wrapper .arrows-wrapper {
@@ -685,6 +685,7 @@ color: #fff;
     }
     .summary-info__content .d-flex {
         justify-content: space-between;
+        align-items: center;
     }
     .summary-info__content .hide__mobile {
         padding: 0 15px;
@@ -765,6 +766,62 @@ color: #fff;
     .book-new__visit {
         margin-top: 25px;
     }
+    .membership-packages__wrapper .continous__carousel {
+        width: 1350px;
+        justify-content: space-around;
+    }
+    .membership-packages__wrapper,
+    .frequency-options__wrapper {
+        position: relative;
+    }
+    .frequency-options__wrapper .arrows-wrapper {
+        top: 35%;
+    }
+    .arrows-wrapper {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        z-index: 20;
+    }
+    .arrows-wrapper i {
+        font-size: 1.7em;
+        padding: 8px;
+    }
+    .arrows-wrapper i:hover {
+        background-color: white;
+    }
+    .arrows-wrapper .right {
+        position: relative;
+        right: -40%;
+        background: white;
+    }
+    .arrows-wrapper .left {
+        position: relative;
+        left: -40%;
+    }
+    /** new css **/
+    .progress-bar__mobile {
+        padding: 20px 0 !important;
+    }
+    .progress-bar__mobile .progress__img {
+        top: 51px;
+    }
+    .main__content {
+        margin-top: 1.5rem !important;
+    }
+    .selected-membership__name {
+        font-size: 1.25em;
+    }
+    .modal__wrapper .main__content {
+        padding: 2rem 0 !important;
+    }
+}
+
+@media only screen and (max-width: 485px) {
+    .arrows-wrapper {
+        width: 95%;
+        left: 2%;
+    }
 }
 
 @media only screen and (max-width: 350px) {
@@ -774,5 +831,11 @@ color: #fff;
     .frequency-options__wrapper .membership-card,
     .frequency-options__wrapper .membership-card svg {
         width: 265px;
+    }
+    .arrows-wrapper .left {
+        left: -37%;
+    }
+    .arrows-wrapper .right {
+        right: -37%;
     }
 }
